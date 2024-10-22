@@ -1,18 +1,12 @@
 {
-  "name": "my-twitter-clone",
+  "name": "sicotter",
   "version": "1.0.0",
+  "description": "A simple Twitter-like app using Firebase",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.17.1",
-    "firebase-admin": "^10.0.0"
-  }
-}
-{
-  "rules": {
-    ".read": "true",
-    ".write": "true"
+    "express": "^4.17.1"
   }
 }
