@@ -1,58 +1,24 @@
 <!DOCTYPE html>
-<html lang="ja">
-    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js"></script>
-
-<!-- Add Firebase products that you want to use -->
-<script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-database.js"></script>
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>簡易ツイッター</title>
+    <title>Sicotter</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-firestore.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
-    <script>
-  // Firebase configuration (your Firebase SDK config info here)
-  const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-    databaseURL: "https://YOUR_PROJECT_ID.firebaseio.com",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_PROJECT_ID.appspot.com",
-    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-    appId: "YOUR_APP_ID"
-  };
-
-  // Initialize Firebase
-  const app = firebase.initializeApp(firebaseConfig);
-  const database = firebase.database();
-</script>
-
 <body>
-    <div id="app">
-        <h1>簡易ツイッター</h1>
-        <div id="tweet-form">
-            <input type="text" id="username" placeholder="ユーザーネーム" required>
-            <textarea id="tweet" placeholder="ツイート内容" required></textarea>
-            <button id="tweet-btn">ツイートする</button>
+    <div class="container">
+        <h1>Sicotter</h1>
+        <div class="tweet-box">
+            <input type="text" id="username" placeholder="Your name">
+            <textarea id="tweetContent" placeholder="What's happening?"></textarea>
+            <button onclick="sendTweet()">Tweet</button>
         </div>
-        <div id="tweets">
-            <!-- ツイートがここに表示されます -->
-        </div>
+        <div id="tweetContainer" class="tweets"></div>
     </div>
-    <div>
-  <input type="text" id="username" placeholder="Your name">
-  <textarea id="tweetContent" placeholder="What's happening?"></textarea>
-  <button onclick="sendTweet()">Tweet</button>
-</div>
-
-<div id="tweetContainer"></div>
-
+    <script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-database.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
+
