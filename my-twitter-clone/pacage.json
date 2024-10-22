@@ -10,3 +10,9 @@
     "firebase-admin": "^10.0.0"
   }
 }
+{
+  "rules": {
+    ".read": "true",
+    ".write": "true"
+  }
+}
