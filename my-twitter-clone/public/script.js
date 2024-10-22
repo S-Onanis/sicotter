@@ -12,6 +12,35 @@ const firebaseConfig = {
 const app = firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
+// 投稿をFirebaseに保存
+function sendTweet() {
+  const username = document.getElementById("username").value;
+  const tweetContent = document.getElementById("tweetContent").value;
+
+  if (username && tweetContent) {
+    // Firebaseに保存
+    database.ref("tweets").push({
+      username: username,
+      content: tweetContent,
+      timestamp: Date.now()
+    });
+
+    // フォームをクリア
+    document.getElementById("tweetContent").value = "";
+  }
+}
+
+// Firebaseからリアルタイムにツイートを取得して表示
+const tweetContainer = document.getElementById("tweetContainer");
+
+database.ref("tweets").on("child_added", function(snapshot) {
+  const tweet = snapshot.val();
+  const tweetElement = document.createElement("div");
+  tweetElement.innerHTML = `<strong>${tweet.username}:</strong> ${tweet.content}`;
+  tweetContainer.prepend(tweetElement);  // 新しいツイートを上に追加
+});
+
+
 // ツイートを表示する関数
 function displayTweets() {
     db.collection("tweets").orderBy("timestamp", "desc").get().then(snapshot => {
