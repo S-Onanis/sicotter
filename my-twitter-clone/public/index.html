@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <html lang="ja">
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js"></script>
+
+<!-- Add Firebase products that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-database.js"></script>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +16,23 @@
     <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-firestore.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
+    <script>
+  // Firebase configuration (your Firebase SDK config info here)
+  const firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+    databaseURL: "https://YOUR_PROJECT_ID.firebaseio.com",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_PROJECT_ID.appspot.com",
+    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+    appId: "YOUR_APP_ID"
+  };
+
+  // Initialize Firebase
+  const app = firebase.initializeApp(firebaseConfig);
+  const database = firebase.database();
+</script>
+
 <body>
     <div id="app">
         <h1>簡易ツイッター</h1>
@@ -22,6 +45,14 @@
             <!-- ツイートがここに表示されます -->
         </div>
     </div>
+    <div>
+  <input type="text" id="username" placeholder="Your name">
+  <textarea id="tweetContent" placeholder="What's happening?"></textarea>
+  <button onclick="sendTweet()">Tweet</button>
+</div>
+
+<div id="tweetContainer"></div>
+
     <script src="script.js"></script>
 </body>
 </html>
